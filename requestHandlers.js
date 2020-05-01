@@ -11,7 +11,7 @@ function start() {
 
 function upload() {
   console.log('Request handler \'upload\' was called');
-  return 'yee haw upload!';
+  return 'Yee haw! This is the upload!';
 }
 
 module.exports = {
