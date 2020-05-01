@@ -1,19 +1,23 @@
 const exec = require('child_process').exec;
 
-function start() {
+function start(response) {
   console.log('Request handler \'start\' was called.');
   let content = 'empty';
 
   exec('ls -lah', function(error, stdout, stderr) {
-    content = stdout;
+    response.writeHead(200, { 'Content-Type': 'text/plain' });
+    response.write(stdout);
+    response.end();
   });
 
-  return content;
+  
 }
 
-function upload() {
+function upload(response) {
   console.log('Request handler \'upload\' was called');
-  return 'Yee haw! This is the upload!';
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  response.write('Yee haw! This is the upload!');
+  response.end();
 }
 
 module.exports = {
